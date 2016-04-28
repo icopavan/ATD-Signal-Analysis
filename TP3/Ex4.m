@@ -27,4 +27,5 @@ else
     f = -ws/2 + ((ws/2)/size_y): ws/size_y: (ws/2) - ((ws/2)/size_y);
 end
 
-figure(1), plot(f, abs(x)), title('Magnitude do espectro do sinal');  
+figure(1), plot(f, abs(x)), title('Magnitude do espectro do sinal');
+
