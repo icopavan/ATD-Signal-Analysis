@@ -34,14 +34,14 @@ if option == 1
     mask((linhas/2)-fc:(linhas/2)+fc, (colunas/2)-fc:(colunas/2)+fc) = 1;
     mask = double(mask);
     mesh(mask);
-    title(['Magnitude Mascara Passa-Baixo Frequencia ' num2str(fc)]);
+    title('Magnitude Mascara Passa-Baixo');
     ft = 'Passa-Baixo';
 else
     mask = ones(linhas);
     mask((linhas/2)-fc:(linhas/2)+fc, (colunas/2)-fc:(colunas/2)+fc) = 0;
     mask = double(mask);
     mesh(mask);
-    title(['Magnitude Mascara Passa-Alto Frequencia ' num2str(fc)]);
+    title('Magnitude Mascara Passa-Alto');
     ft = 'Passa-Alto';
 end
 rotate3d on;
@@ -52,9 +52,9 @@ D = uint8(ifft2(filtro));
 figure(4);
 mesh(xx, yy, 20*log10(abs(filtro)));
 rotate3d;
-title(['Magnitude do Filtro | Frequencia ' num2str(fc)]);
+title('Magnitude do Filtro');
 
 figure(5)
 imshow(D);
 rotate3d on;
-title(['Peppers.bmp com Filtro ' ft ' frequencia ' num2str(fc)]);
+title(['Peppers.bmp com Filtro aplicado');
