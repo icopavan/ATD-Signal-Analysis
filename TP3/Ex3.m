@@ -17,6 +17,12 @@ F = fftshift(fft2(double(img)));
 xx = -linhas/2:linhas/2-1;
 yy = -colunas/2:colunas/2-1;
 
+cx = find(xx==0);
+cy = find(yy==0);
+
+disp(F(cx, cy)/(linhas*colunas));
+
+
 figure(2);
 mesh(xx, yy, 20*log10(abs(F)));
 axis([xx(1) xx(end) yy(1) yy(end)]);
@@ -46,15 +52,19 @@ else
 end
 rotate3d on;
 
+figure(4);
+imshow(mask);
+title(['Imagem Máscara do filtro ' ft ' Frequencia ' num2str(fc)]);
+
 filtro = mask.*F;
 D = uint8(ifft2(filtro));
 
-figure(4);
+figure(5);
 mesh(xx, yy, 20*log10(abs(filtro)));
 rotate3d;
-title(['Magnitude do Filtro | Frequencia ' num2str(fc)]);
+title(['Magnitude do Filtro ' ft ' | Frequencia ' num2str(fc)]);
 
-figure(5)
+figure(6)
 imshow(D);
 rotate3d on;
 title(['Peppers.bmp com Filtro ' ft ' frequencia ' num2str(fc)]);
