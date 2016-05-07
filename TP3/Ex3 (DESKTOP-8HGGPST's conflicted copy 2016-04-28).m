@@ -52,9 +52,9 @@ D = uint8(ifft2(filtro));
 figure(4);
 mesh(xx, yy, 20*log10(abs(filtro)));
 rotate3d;
-title(['Magnitude do Filtro' f | Frequencia ' num2str(fc)]);
+title(['Magnitude do Filtro | Frequencia ' num2str(fc)]);
 
 figure(5)
-imshow(D);
+imshow(real(D));
 rotate3d on;
 title(['Peppers.bmp com Filtro ' ft ' frequencia ' num2str(fc)]);

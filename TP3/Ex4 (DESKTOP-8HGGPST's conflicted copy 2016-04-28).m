@@ -1,6 +1,7 @@
-% Exercicio 4
+%Exercicio 4
 
 close all;
+clear all;
 clc
 
 %4.1
@@ -11,11 +12,11 @@ info = audioinfo(file);
 nbits = info.BitsPerSample;
  
 [y, fs] = audioread(file);
-% sound(y, fs);
-% 
-% pause(); 
+sound(y, fs);
 
-ws = 2*pi*fs;
+pause();
+
+ws= 2 * pi * fs;
 
 size_y = length(y);
 x = fftshift(fft(y));
